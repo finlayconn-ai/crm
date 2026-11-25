@@ -24,3 +24,11 @@ Start local Postgres with `docker compose up -d`. Run `bun install`, `bun run db
 - Use Stripe sandbox keys and MailerSend test inboxes if the fork adds billing or transactional email. CRM mailbox sync uses its own connected accounts.
 
 See [release procedures](../CONTRIBUTING.md#releases).
+
+## Errors and product analytics
+
+Sentry is the portfolio default for error tracking. The fork has no verified Sentry project or error delivery. When enabling it, tag preview and production separately and attach the deployed commit. Enable local capture only for a deliberate test.
+
+PostHog is optional for product analytics. This fork inherits upstream telemetry with a fixed destination. Set `CRM_TELEMETRY_DISABLED=1` during development and preview. Confirm the destination and intended events before enabling production analytics. [Telemetry behavior](telemetry.md)
+
+Start with the free plans. The fork’s actual provider plans, billing settings, and alert owner remain unverified.
